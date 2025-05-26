@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Car Movement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EE197E6E-BB13-C38E-716A-6F1AFC2E22C0}|Assembly-CSharp.csproj|C:\\Users\\user\\Car Movement\\assets\\scripts\\splinebotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EE197E6E-BB13-C38E-716A-6F1AFC2E22C0}|Assembly-CSharp.csproj|c:\\users\\user\\car movement\\assets\\scripts\\splinebotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EE197E6E-BB13-C38E-716A-6F1AFC2E22C0}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\splinebotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE197E6E-BB13-C38E-716A-6F1AFC2E22C0}|Assembly-CSharp.csproj|C:\\Users\\user\\Car Movement\\assets\\scripts\\racestartmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE197E6E-BB13-C38E-716A-6F1AFC2E22C0}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\racestartmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EE197E6E-BB13-C38E-716A-6F1AFC2E22C0}|Assembly-CSharp.csproj|C:\\Users\\user\\Car Movement\\assets\\scripts\\spline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{EE197E6E-BB13-C38E-716A-6F1AFC2E22C0}|Assembly-CSharp.csproj|C:\\Users\\user\\Car Movement\\assets\\scripts\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EE197E6E-BB13-C38E-716A-6F1AFC2E22C0}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE197E6E-BB13-C38E-716A-6F1AFC2E22C0}|Assembly-CSharp.csproj|C:\\Users\\user\\Car Movement\\assets\\scripts\\racestartmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE197E6E-BB13-C38E-716A-6F1AFC2E22C0}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\racestartmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EE197E6E-BB13-C38E-716A-6F1AFC2E22C0}|Assembly-CSharp.csproj|C:\\Users\\user\\Car Movement\\assets\\scripts\\mainmenuscripts\\carselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -84,14 +84,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\SplineBotController.cs",
               "ToolTip": "C:\\Users\\user\\Car Movement\\Assets\\Scripts\\SplineBotController.cs",
               "RelativeToolTip": "Assets\\Scripts\\SplineBotController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwCUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAqwB0AAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-24T11:54:26.26Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Spline.cs",
               "DocumentMoniker": "C:\\Users\\user\\Car Movement\\Assets\\Scripts\\Spline.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Spline.cs",
@@ -99,8 +99,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Spline.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAQwAsAAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T11:52:01.658Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-24T11:52:01.658Z"
             },
             {
               "$type": "Document",
@@ -124,8 +123,7 @@
               "RelativeToolTip": "Assets\\Scripts\\RaceManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T11:41:58.37Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-17T11:41:58.37Z"
             },
             {
               "$type": "Document",
@@ -137,8 +135,7 @@
               "RelativeToolTip": "Assets\\Scripts\\MainMenuScripts\\CarSelector.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T12:10:45.409Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-27T12:10:45.409Z"
             },
             {
               "$type": "Document",
@@ -150,12 +147,11 @@
               "RelativeToolTip": "Assets\\Scripts\\CameraFollow.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T10:43:30.607Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-27T10:43:30.607Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CarController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Car Movement\\Assets\\Scripts\\CarController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CarController.cs",
@@ -163,8 +159,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CarController.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAAAAEEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T22:13:35.163Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T22:13:35.163Z"
             },
             {
               "$type": "Document",
@@ -176,12 +171,11 @@
               "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-26T13:58:25.292Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-26T13:58:25.292Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "RaceStartManager.cs",
               "DocumentMoniker": "C:\\Users\\user\\Car Movement\\Assets\\Scripts\\RaceStartManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\RaceStartManager.cs",

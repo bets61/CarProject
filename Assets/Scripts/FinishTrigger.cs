@@ -1,14 +1,21 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
+ï»¿using UnityEngine;
 
 public class FinishTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        Debug.Log($"Triggerâ€™a giren nesne: {other.name}");
+
+        CarIdentifier car = other.GetComponentInParent<CarIdentifier>();
+        if (car == null)
         {
-            Debug.Log("Yarýþý kazandýn!");
-            SceneManager.LoadScene("WinScene"); // veya sahnede "Tebrikler" UI aç
+            Debug.LogWarning(" CarIdentifier component'i bulunamadÄ±!");
+            return;
         }
+
+        if (car.hasFinished) return;
+
+        car.hasFinished = true;
+        RaceManager.Instance.RegisterFinish(car.carName, car.isPlayer);
     }
 }

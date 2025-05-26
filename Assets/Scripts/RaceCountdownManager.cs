@@ -1,31 +1,44 @@
-using System.Collections;
+using TMPro;
 using UnityEngine;
+using System.Collections;
 
 public class RaceCountdownManager : MonoBehaviour
 {
     public static RaceCountdownManager Instance;
+    public TextMeshProUGUI countdownText;
+
     public bool raceStarted = false;
 
-    void Awake()
+    private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
     }
 
-    void Start()
+    private void Start()
     {
-        StartCoroutine(CountdownAndStart());
+        StartCoroutine(CountdownRoutine());
     }
 
-    IEnumerator CountdownAndStart()
+    IEnumerator CountdownRoutine()
     {
-        Debug.Log("3...");
-        yield return new WaitForSeconds(1f);
-        Debug.Log("2...");
-        yield return new WaitForSeconds(1f);
-        Debug.Log("1...");
-        yield return new WaitForSeconds(1f);
-        Debug.Log("GO!");
+        countdownText.gameObject.SetActive(true);
 
+        countdownText.text = "3";
+        yield return new WaitForSeconds(1f);
+
+        countdownText.text = "2";
+        yield return new WaitForSeconds(1f);
+
+        countdownText.text = "1";
+        yield return new WaitForSeconds(1f);
+
+        countdownText.text = "GO!";
         raceStarted = true;
+        yield return new WaitForSeconds(1f);
+
+        countdownText.gameObject.SetActive(false);
     }
 }

@@ -8,9 +8,9 @@ public class CarController : MonoBehaviour
     private float currentSteerAngle, currentBrakeForce;
     private bool isBraking;
 
-    [SerializeField] private float motorForce = 1000f;
-    [SerializeField] private float brakeForce = 3000f;
-    [SerializeField] private float maxSteerAngle = 30f;
+    [SerializeField] public float motorForce = 2000f;
+    [SerializeField] public float brakeForce = 3000f;
+    [SerializeField] public float maxSteerAngle = 20f;
 
     private WheelCollider frontLeftWheelCollider, frontRightWheelCollider;
     private WheelCollider rearLeftWheelCollider, rearRightWheelCollider;
@@ -63,10 +63,16 @@ public class CarController : MonoBehaviour
         currentBrakeForce = isBraking ? brakeForce : 0f;
         ApplyBrakes(currentBrakeForce);
 
-        if (rearLeftWheelCollider != null)
+        if (!rearLeftWheelCollider.isGrounded || !rearRightWheelCollider.isGrounded)
+        {
+            Debug.Log("Arka tekerlekler yere temas etmiyor!");
+            return;
+        }
+
+      /*  if (rearLeftWheelCollider != null)
         {
             Debug.Log("Grounded: " + rearLeftWheelCollider.isGrounded);
-        }
+        }*/
 
     }
 

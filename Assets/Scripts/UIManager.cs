@@ -1,3 +1,5 @@
+ï»¿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,17 +7,30 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
+    [Header("Finish Panel")]
     public GameObject resultPanel;
-    public Text resultText;
+    public TMP_Text resultText;
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
+        resultPanel.SetActive(false);
     }
 
-    public void ShowResult(int place)
+    public void ShowFinishResults(List<string> order)
     {
         resultPanel.SetActive(true);
-        resultText.text = $"Yarýþý {place}. sýrada bitirdin!";
+
+        string result = " YarÄ±ÅŸ SonuÃ§larÄ±:\n";
+        for (int i = 0; i < order.Count; i++)
+        {
+            result += $"{i + 1}. {order[i]}\n";
+        }
+
+        resultText.text = result;
     }
 }

@@ -7,12 +7,12 @@ public class RaceStartManager : MonoBehaviour
     public GameObject[] allCarsPrefabs;
     public Spline spline;
 
-    void Start()
+    private void Start()
     {
         SpawnAllCars();
     }
 
-    void SpawnAllCars()
+    private void SpawnAllCars()
     {
         int selectedIndex = GameManager.Instance.selectedCarIndex;
 
@@ -22,9 +22,7 @@ public class RaceStartManager : MonoBehaviour
             Vector3 spawnPos = baseSpawnPoint.position + baseSpawnPoint.right * xOffset;
 
             if (Physics.Raycast(spawnPos + Vector3.up * 3f, Vector3.down, out RaycastHit hit, 10f))
-            {
-                spawnPos = hit.point + Vector3.up * 1.0f;
-            }
+                spawnPos = hit.point + Vector3.up;
 
             GameObject car = Instantiate(allCarsPrefabs[i], spawnPos, baseSpawnPoint.rotation);
             car.name = $"Car_{i}";
@@ -40,23 +38,23 @@ public class RaceStartManager : MonoBehaviour
             }
 
             bool isPlayer = (i == selectedIndex);
+
             var id = car.AddComponent<CarIdentifier>();
             id.isPlayer = isPlayer;
+            id.carName = isPlayer ? "Sen" : $"Bot {i + 1}";
 
             if (isPlayer)
             {
                 var controller = car.AddComponent<CarController>();
                 controller.isPlayerControlled = true;
-                controller.SetupWheels(car); // TEKERLERİ MANUEL AYARLIYORUZ
+                controller.SetupWheels(car);
                 Camera.main.GetComponent<CameraFollow>().SetTarget(car.transform);
-                Debug.Log("Oyuncu arabası oluşturuldu ve kontrol atanıyor.");
             }
             else
             {
                 var bot = car.AddComponent<SplineBotController>();
                 bot.spline = spline;
-                bot.offset = i * 0.05f;
-                Debug.Log($"Bot {i} spline üzerinde başlatıldı.");
+                bot.offset = Random.Range(-0.5f, 0.5f);
             }
         }
     }

@@ -1,15 +1,14 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class Spline : MonoBehaviour
 {
-    [Header("Spline Noktalarý (en az 4)")]
     public Transform[] controlPoints;
 
     public Vector3 GetPoint(float t)
     {
         if (controlPoints == null || controlPoints.Length < 4)
         {
-            Debug.LogError("Spline çalýþmasý için en az 4 control point gerekli!");
+            Debug.LogError("Spline Ã§alÄ±ÅŸmasÄ± iÃ§in en az 4 control point gerekli!");
             return Vector3.zero;
         }
 
@@ -30,14 +29,27 @@ public class Spline : MonoBehaviour
         );
     }
 
+    public float TotalLength(int steps = 1000)
+    {
+        float length = 0f;
+        Vector3 prev = GetPoint(0f);
+        for (int i = 1; i <= steps; i++)
+        {
+            float t = i / (float)steps;
+            Vector3 curr = GetPoint(t);
+            length += Vector3.Distance(prev, curr);
+            prev = curr;
+        }
+        return length;
+    }
+
     private void OnDrawGizmos()
     {
         if (controlPoints == null || controlPoints.Length < 4) return;
 
         Gizmos.color = Color.cyan;
         Vector3 prev = GetPoint(0f);
-
-        for (float t = 0; t <= 1f; t += 0.01f)
+        for (float t = 0f; t <= 1f; t += 0.01f)
         {
             Vector3 pos = GetPoint(t);
             Gizmos.DrawLine(prev, pos);

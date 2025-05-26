@@ -5,7 +5,7 @@ public class RaceManager : MonoBehaviour
 {
     public static RaceManager Instance;
 
-    private List<string> finishOrder = new List<string>(); // araba adlarýný sýrayla ekle
+    private List<string> finishOrder = new List<string>();
 
     private void Awake()
     {
@@ -24,8 +24,7 @@ public class RaceManager : MonoBehaviour
 
         if (isPlayer)
         {
-            // Oyuncu bitirdiðinde sonucu göster
-            UIManager.Instance.ShowResult(finishOrder.Count);
+            UIManager.Instance.ShowFinishResults(finishOrder);
         }
     }
 }
