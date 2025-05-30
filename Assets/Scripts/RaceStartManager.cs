@@ -3,7 +3,7 @@
 public class RaceStartManager : MonoBehaviour
 {
     public Transform baseSpawnPoint;
-    public float spacing = 4f;
+    public float spacing = 2.6f; 
     public GameObject[] allCarsPrefabs;
     public Spline spline;
 
@@ -15,16 +15,22 @@ public class RaceStartManager : MonoBehaviour
     private void SpawnAllCars()
     {
         int selectedIndex = GameManager.Instance.selectedCarIndex;
+        int totalCars = allCarsPrefabs.Length;
+        float startT = 0.005f;
 
-        for (int i = 0; i < allCarsPrefabs.Length; i++)
+        for (int i = 0; i < totalCars; i++)
         {
-            float xOffset = (i - allCarsPrefabs.Length / 2f) * spacing;
-            Vector3 spawnPos = baseSpawnPoint.position + baseSpawnPoint.right * xOffset;
+            float halfStepFix = (totalCars % 2 == 0) ? 0.5f : 0f;
+            float xOffset = (i - totalCars / 2f + halfStepFix) * spacing;
 
-            if (Physics.Raycast(spawnPos + Vector3.up * 3f, Vector3.down, out RaycastHit hit, 10f))
-                spawnPos = hit.point + Vector3.up;
+            Vector3 splineStart = spline.GetPoint(startT);
+            Vector3 forward = (spline.GetPoint(startT + 0.01f) - splineStart).normalized;
+            Vector3 right = Vector3.Cross(Vector3.up, forward);
 
-            GameObject car = Instantiate(allCarsPrefabs[i], spawnPos, baseSpawnPoint.rotation);
+            Vector3 spawnPos = splineStart + right/2f * xOffset;
+            spawnPos.y += 1f;
+
+            GameObject car = Instantiate(allCarsPrefabs[i], spawnPos, Quaternion.LookRotation(forward));
             car.name = $"Car_{i}";
 
             Rigidbody rb = car.GetComponent<Rigidbody>();
@@ -37,13 +43,11 @@ public class RaceStartManager : MonoBehaviour
                 rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             }
 
-            bool isPlayer = (i == selectedIndex);
-
             var id = car.AddComponent<CarIdentifier>();
-            id.isPlayer = isPlayer;
-            id.carName = isPlayer ? "Sen" : $"Bot {i + 1}";
+            id.isPlayer = (i == selectedIndex);
+            id.carName = id.isPlayer ? "Sen" : $"Bot {i + 1}";
 
-            if (isPlayer)
+            if (id.isPlayer)
             {
                 var controller = car.AddComponent<CarController>();
                 controller.isPlayerControlled = true;
@@ -54,7 +58,9 @@ public class RaceStartManager : MonoBehaviour
             {
                 var bot = car.AddComponent<SplineBotController>();
                 bot.spline = spline;
-                bot.offset = Random.Range(-0.5f, 0.5f);
+                bot.offset = xOffset/2f;
+                bot.baseSpeed = Random.Range(6f, 25f);  
+                bot.t = startT;
             }
         }
     }
